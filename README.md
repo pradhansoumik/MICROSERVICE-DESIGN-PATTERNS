@@ -2,7 +2,7 @@
 
 Hands-on demos with **real-life examples**, runnable Spring Boot code, and architecture diagrams you can explain in interviews.
 
-**Location:** `D:\planning-preparation-Execution\MICROSERVICES_NOTES\microservice-design-patterns`
+**Location:** `D:\planning-preparation-Execution\MICROSERVICES_NOTES\MICROSERVICE-DESIGN-PATTERNS`
 
 ## Roadmap
 
