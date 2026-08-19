@@ -26,6 +26,7 @@ Hands-on demos with **real-life examples**, runnable Spring Boot code, and archi
 | CB demo apps | `01-circuit-breaker/payment-service` + `order-service` | CB + TimeLimiter + fallback |
 | CB run sheet | `01-circuit-breaker/DEMO.md` | PowerShell commands |
 | CB deep notes | `01-circuit-breaker/CB_INTERVIEW-REVISION-NOTES.md` | States, config, SLOW/FAIL, TimeLimiter |
+| **CB internals** | `01-circuit-breaker/CB-INTERNAL-WORKING.md` | How CB works internally (interview) |
 | Retry demo | `01-circuit-breaker/retry-demo` | Retry, Retry→CB, Idempotency |
 | CB architecture | `01-circuit-breaker/README.md` | Diagrams + pitch |
 | **FLOW** | `01-circuit-breaker/FLOW.md` | Controller → CB → Payment |

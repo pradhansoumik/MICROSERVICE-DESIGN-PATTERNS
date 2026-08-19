@@ -192,6 +192,8 @@ Payment sleeps 3s; TimeLimiter (2s) / slow-call threshold trips breaker similarl
 
 ## 9. Interview Q&A (high probability)
 
+**Deep dive:** How CB works internally → see **[CB-INTERNAL-WORKING.md](./CB-INTERNAL-WORKING.md)**
+
 **Q: Circuit Breaker vs Retry?**  
 A: Retry helps **transient** blips. Circuit Breaker stops calling when dependency is **clearly unhealthy**. Often used together: Retry (limited) inside Closed state; when Open, no retries.
 
