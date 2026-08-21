@@ -69,6 +69,7 @@ sequenceDiagram
 | Path rewrite | `/api/orders/1` → `/orders/1` |
 | Route filter | `AddRequestHeader=X-Gateway, api-gateway` |
 | Global filter | `RequestIdGlobalFilter` adds/propagates `X-Request-Id` |
+| Error filter | `StructuredErrorGlobalFilter` → structured 503 JSON on downstream failure |
 
 Production also often adds: JWT auth, rate limiting, SSL termination, canary routing (mentioned in notes).
 

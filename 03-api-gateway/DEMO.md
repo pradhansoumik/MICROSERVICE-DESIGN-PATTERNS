@@ -46,3 +46,25 @@ Compare: no `X-Gateway` unless you add it yourself.
 Invoke-RestMethod http://localhost:8080/actuator/health
 Invoke-RestMethod http://localhost:8080/actuator/gateway/routes
 ```
+
+## Step 6 — Structured error from Gateway filter (no Circuit Breaker)
+1. Keep `api-gateway` running  
+2. **Stop** `product-backend`  
+3. Call:
+```powershell
+# Postman/browser is clearer for 503 JSON body
+# GET http://localhost:8080/api/products
+```
+
+**Expect HTTP 503** JSON from `StructuredErrorGlobalFilter`:
+```json
+{
+  "success": false,
+  "source": "api-gateway",
+  "path": "/api/products",
+  "message": "Downstream service failed or is unreachable",
+  "cause": "..."
+}
+```
+
+Restart product-backend for normal flow again.

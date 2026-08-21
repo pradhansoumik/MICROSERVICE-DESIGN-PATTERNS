@@ -53,14 +53,35 @@ Client gets CREATED response
 |---|---|---|
 | Edge | `api-gateway` | Single entry, route, rewrite, headers |
 | Global filter | `RequestIdGlobalFilter` | Correlation id for every request |
+| Error filter | `StructuredErrorGlobalFilter` | On downstream failure → structured 503 JSON |
 | Route config | `application.properties` | Predicates + filters + URI |
 | Downstream | `order-backend` | Order APIs |
 | Downstream | `product-backend` | Product APIs |
 
 ---
 
-## D) Interview line
+## D) Error path (filter chain — not Circuit Breaker)
 
-> “Client hits only the gateway. Gateway matches a route by path, rewrites to the internal path, adds cross-cutting headers via filters, and proxies to the correct backend. In production I’d also put auth and rate limiting at the gateway; service discovery would replace hardcoded localhost URIs.”
+```text
+Client → Gateway → backend DOWN / connection error
+                         │
+                         ▼
+              filter chain Mono errors
+                         │
+                         ▼
+         StructuredErrorGlobalFilter.onErrorResume
+                         │
+                         ▼
+         HTTP 503 JSON { success:false, source:api-gateway, ... }
+                         │
+                         ▼
+                      Client
+```
 
-**Production note:** Use Eureka/K8s DNS / Consul for dynamic `uri` instead of `http://localhost:8101`.
+---
+
+## E) Interview line
+
+> “Client hits only the gateway. Gateway matches a route by path, rewrites to the internal path, adds cross-cutting headers via filters, and proxies to the correct backend. If the downstream call fails, a GlobalFilter catches the error on the filter chain and returns a structured JSON error — the client still only talks to the gateway.”
+
+**Production note:** Use Eureka/K8s DNS / Consul for dynamic `uri` instead of `http://localhost:8101`. Rate limiting/auth often sit at the gateway too.
