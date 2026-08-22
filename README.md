@@ -43,18 +43,20 @@ Hands-on demos with **real-life examples**, runnable Spring Boot code, and archi
 
 | Item | Path | Purpose |
 |---|---|---|
-| Gateway app | `03-api-gateway/api-gateway` (:8080) | Spring Cloud Gateway |
-| Backends | `order-backend` (:8101), `product-backend` (:8102) | Downstream services |
-| Demo sheet | `03-api-gateway/DEMO.md` | Hit gateway routes |
-| Interview notes | `03-api-gateway/API-GATEWAY_INTERVIEW-REVISION-NOTES.md` | Gateway vs BFF vs LB |
-| **FLOW** | `03-api-gateway/FLOW.md` | Client → gateway filters → backend |
-| Architecture | `03-api-gateway/README.md` | Diagrams + pitch |
+| Basic gateway | `03-api-gateway/api-gateway` (:8080) | Routing + filters |
+| Shared backends | `order-backend` (:8101), `product-backend` (:8102) | Common services |
+| **Auth + Rate Limit GW** | `03-api-gateway/api-gateway-auth-ratelimit` (:8085) | JWT + in-memory RL |
+| **Design RL system** | `03-api-gateway/DESIGN-RATE-LIMITING-SYSTEM.md` | Interview system design |
+| Auth notes | `03-api-gateway/AUTH-JWT-NOTES.md` | JWT at edge |
+| Demo / Flow (secure) | `DEMO-AUTH-RATE-LIMIT.md`, `FLOW-AUTH-RATE-LIMIT.md` | 401 / 429 practice |
+| **FLOW** (basic) | `03-api-gateway/FLOW.md` | Client → gateway → backend |
 
 ## Ports
 
 | App | Port |
 |---|---|
 | **api-gateway** | **8080** |
+| **api-gateway-auth-ratelimit** | **8085** |
 | payment-service (CB) | 8081 |
 | order-service (CB) | 8082 |
 | retry-demo | 8083 |

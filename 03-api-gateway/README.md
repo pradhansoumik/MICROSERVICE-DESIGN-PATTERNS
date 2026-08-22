@@ -1,15 +1,25 @@
 # 03 — API Gateway
 
 **Category:** Communication / edge pattern  
-**Real-life:** Mobile/Web apps call **one** entry URL; gateway routes to Order / Product (and later Payment) services.
+**Real-life:** Mobile/Web apps call **one** entry URL; gateway routes to Order / Product services.
+
+## Apps in this folder
 
 | App | Port | Role |
 |---|---|---|
-| `api-gateway` | **8080** | Single entry — routing + filters |
-| `order-backend` | 8101 | Downstream order APIs |
-| `product-backend` | 8102 | Downstream product APIs |
+| `order-backend` | 8101 | **COMMON** downstream order APIs |
+| `product-backend` | 8102 | **COMMON** downstream product APIs |
+| `api-gateway` | **8080** | Basic gateway — routing + requestId |
+| `api-gateway-auth-ratelimit` | **8085** | **Separate** — JWT auth + rate limiting |
 
-**Client should call Gateway only** (`localhost:8080`), not backends directly.
+Shared backends: start once, use either gateway.
+
+---
+
+### Learn path
+1. Basic gateway (`:8080`) — routing / rewrite / filters → `DEMO.md`, `FLOW.md`  
+2. Secured gateway (`:8085`) — JWT + rate limit → `DEMO-AUTH-RATE-LIMIT.md`  
+3. Interview system design → **`DESIGN-RATE-LIMITING-SYSTEM.md`** (often asked)
 
 ---
 
