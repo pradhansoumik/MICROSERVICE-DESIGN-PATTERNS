@@ -42,6 +42,14 @@ Production: token issued by **Auth Server** (Keycloak/Cognito), Gateway validate
 | X-Request-Id | Correlate this request in logs |
 | TraceId | Distributed tracing graph |
 
+**Production filter chain** (same mechanism, different jobs — rate limit ≠ request-id):
+
+```text
+RequestId  →  JwtAuth  →  RateLimit  →  route to backend
+```
+
+`:8085` demo omits RequestId on purpose; keep all three in production. Details → `FLOW-AUTH-RATE-LIMIT.md` §C.
+
 ---
 
 ## 5. Pitch
