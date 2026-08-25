@@ -45,27 +45,92 @@ CDN / WAF  →  API Gateway  →  Services
 ### A) Fixed window
 - Count requests in calendar window (e.g. each minute `10:00–10:01`)  
 - **Simple**  
-- **Burst at boundary:** 100 at 10:00:59 + 100 at 10:01:00 = 200 in 2 seconds  
+- **Burst at boundary:** 100 at `10:00:59` + 100 at `10:01:00` = **~200 in 2 seconds**
+
+#### Why “burst at boundary” happens (easy picture)
+
+Limit = **100 requests per minute**. Windows are calendar slices:
+
+```text
+Window 1: 10:00:00 → 10:00:59   (own counter)
+Window 2: 10:01:00 → 10:01:59   (counter resets to 0)
+```
+
+```text
+10:00:59  →  send 100   (Window 1 full — allowed)
+10:01:00  →  send 100   (Window 2 fresh — also allowed)
+Total in ~2 seconds ≈ 200
+```
+
+Each window only saw 100, so the rule says OK — but the server felt a **200-request stampede**.
+
+**Analogy:** cinema “100 tickets per hour”; at 10:59 take 100, at 11:00 take another 100 → stampede even though each hour looked fine.
+
+**Our demo** (`api-gateway-auth-ratelimit`) uses this style for simplicity.
+
+---
 
 ### B) Sliding window (log / counter)
-- More accurate over last 60 seconds  
+- More accurate over **last 60 seconds** (rolling), not the clock minute  
 - Needs more memory (timestamps) or smarter math  
 - Smoother than fixed window  
+
+#### How it fixes the boundary burst
+
+It asks: *how many requests in the rolling last 60 seconds?* — **no hard reset at `:00`**.
+
+```text
+10:00:59  — already 100 in last 60s → 101st blocked
+10:01:00  — still looks back ~60s; those 100 are still inside the window
+            → you do NOT get a fresh 100
+```
+
+Slots free only as old requests age out of the lookback.
+
+**Interview line:** “Quota is over a rolling time range, so the minute boundary doesn’t reset the count.”
+
+---
 
 ### C) Token bucket (very popular)
 - Bucket holds N tokens; refill at rate R  
 - Each request consumes 1 token  
 - Allows **controlled bursts**, steady average rate  
 
+#### How it fixes the boundary burst
+
+Tokens refill **continuously** — not “new minute = new full quota.”
+
+```text
+Bucket capacity = 100, refill ≈ 100/minute
+Emptied at 10:00:59 (0 tokens)
+At 10:01:00 you only get ~1–2 tokens refilled in that second
+→ cannot dump another full 100 instantly
+```
+
+If the client was idle and the bucket is full, a **one-time burst up to capacity** is intentional. That is different from fixed window’s accidental **200 across two windows**.
+
+**Interview line:** “Tokens refill gradually; emptying the bucket doesn’t unlock another full burst at the clock edge.”
+
+---
+
 ### D) Leaky bucket
 - Requests drain at fixed rate (queue)  
 - Smooths traffic; excess dropped/queued  
 
-**Say in interview:**  
-> “I’d pick **token bucket** for API rate limiting — supports burst and steady rate; fixed window is simpler but has boundary spikes.”
-
 ---
 
+### Algorithm pick (say in interview)
+
+| Algorithm | Boundary spike? | Typical use |
+|---|---|---|
+| Fixed window | Yes (~2× near edge) | Demo / simple counters |
+| Sliding window | No (rolling lookback) | Stricter fairness |
+| Token bucket | No accidental double; controlled burst OK | **APIs (common choice)** |
+| Leaky bucket | Smooths to fixed drain rate | Traffic shaping |
+
+> “I’d pick **token bucket** for API rate limiting — supports burst and steady rate; fixed window is simpler but has boundary spikes. Sliding window also avoids the spike if we need stricter rolling accuracy.”
+
+---
 ## 4. High-level design
 
 ### Single gateway instance
