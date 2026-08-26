@@ -172,18 +172,20 @@ rl:apikey:{key}:/api/orders
 
 ---
 
-## 6. Request flow (with JWT)
+## 6. Request flow (with JWT) — short
 
 ```text
 1. Client gets JWT (login / token endpoint)
 2. Client calls API with Authorization: Bearer <jwt>
 3. Gateway validates JWT → extract sub (userId)
 4. Rate limit check for key = userId (or userId+path)
-5a. Allowed → forward to Order/Product
+5a. Allowed → route / rewrite / proxy to Order/Product
 5b. Blocked → 429 + Retry-After + JSON body
 ```
 
 Auth first, then rate limit by **authenticated identity** (better than IP-only for APIs).
+
+**Full layers + filter chain** (custom JWT/RL vs built-in `RewritePath` / `RouteToRequestUrlFilter` / `NettyRoutingFilter` / `NettyWriteResponseFilter`) → **`FLOW-AUTH-RATE-LIMIT.md` §C**.
 
 ---
 
