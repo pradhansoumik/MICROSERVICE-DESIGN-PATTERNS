@@ -32,6 +32,8 @@ restTemplate.getForObject("http://PRODUCT-SERVICE/products", Map.class);
 `@LoadBalanced` does **not** fetch the registry by itself.  
 Eureka client fetches/caches; `@LoadBalanced` **consumes** that cache on each call.
 
+**Who does what on each call** (interview script) → **`FLOW.md` §B2**
+
 ---
 
 ## 2. Supportive configuration (purpose of each)
