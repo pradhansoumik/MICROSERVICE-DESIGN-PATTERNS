@@ -13,8 +13,8 @@ Hands-on demos with **real-life examples**, runnable Spring Boot code, and archi
 | 02 | **Saga** | ✅ Done | Order → Inventory → Payment + compensation |
 | 04 | **CQRS** | ✅ Done | Order write model vs read model |
 | 03 | **API Gateway** | ✅ Done | Single entry → Order + Product backends |
-| 05 | Service Discovery | ⏳ Next | Eureka / K8s DNS style discovery |
-| 06 | Event-Driven (+ Saga choreography) | ⏳ Planned | Order placed → Kafka → Inventory/Notification |
+| 05 | **Service Discovery** | ✅ Done | Eureka registry + name-based calls + LB |
+| 06 | Event-Driven (+ Saga choreography) | ⏳ Next | Order placed → Kafka → Inventory/Notification |
 | 07 | Observability | ⏳ Planned | Metrics, tracing, health, logs |
 
 ## Pattern 01 — Circuit Breaker
@@ -51,6 +51,17 @@ Hands-on demos with **real-life examples**, runnable Spring Boot code, and archi
 | Demo / Flow (secure) | `DEMO-AUTH-RATE-LIMIT.md`, `FLOW-AUTH-RATE-LIMIT.md` | 401 / 429 practice |
 | **FLOW** (basic) | `03-api-gateway/FLOW.md` | Client → gateway → backend |
 
+## Pattern 05 — Service Discovery
+
+| Item | Path | Purpose |
+|---|---|---|
+| Eureka | `05-service-discovery/eureka-server` (:8761) | Registry |
+| Providers | `order-service` (:8201), `product-service` (:8202) | Register by name |
+| Caller | `storefront-client` (:8200) | `@LoadBalanced` service-name calls |
+| **FLOW** | `05-service-discovery/FLOW.md` | Register → resolve → LB → call |
+| Demo | `05-service-discovery/DEMO.md` | 2-instance Product LB |
+| Interview notes | `SERVICE-DISCOVERY_INTERVIEW-REVISION-NOTES.md` | Eureka vs K8s DNS |
+
 ## Ports
 
 | App | Port |
@@ -64,6 +75,10 @@ Hands-on demos with **real-life examples**, runnable Spring Boot code, and archi
 | cqrs-demo | 8091 |
 | order-backend (GW) | 8101 |
 | product-backend (GW) | 8102 |
+| **eureka-server** | **8761** |
+| **storefront-client (SD)** | **8200** |
+| **order-service (SD)** | **8201** |
+| **product-service (SD)** | **8202** (+8203 for LB demo) |
 
 ## How to use
 
@@ -71,4 +86,4 @@ Hands-on demos with **real-life examples**, runnable Spring Boot code, and archi
 2. Revise interview notes / pitch  
 3. **Convention:** every pattern has a **`FLOW.md`**
 
-**Next:** **05 — Service Discovery**
+**Next:** **06 — Event-Driven (+ Saga choreography)**
