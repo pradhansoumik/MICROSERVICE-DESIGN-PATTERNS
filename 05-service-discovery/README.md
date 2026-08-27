@@ -63,6 +63,7 @@ Without discovery:
 |---|---|
 | `FLOW.md` | Register → lookup → load balance → response |
 | `DEMO.md` | Run steps + 2-instance LB demo |
+| `LOADBALANCED-AND-EUREKA-CONFIG.md` | `@LoadBalanced` significance + config purpose + flow |
 | `SERVICE-DISCOVERY_INTERVIEW-REVISION-NOTES.md` | Eureka vs K8s DNS, client vs server LB |
 
 ---
