@@ -6,7 +6,7 @@
 
 ---
 
-## 1. What metrics answer
+## 1. What metrics answer 
 
 | Question | Example metric |
 |---|---|
