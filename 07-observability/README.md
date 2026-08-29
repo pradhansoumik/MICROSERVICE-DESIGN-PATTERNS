@@ -13,9 +13,10 @@
 |---|---|---|---|
 | 1 | What is Observability (+ 3 pillars) | `01-WHAT-IS-OBSERVABILITY.md` | ✅ Done |
 | 2 | Health & Actuator | `02-HEALTH-AND-ACTUATOR.md` | ✅ Done (or in progress) |
-| 3 | Logging & correlation (`requestId` / `traceId`) | `03-LOGGING-AND-CORRELATION.md` | **Read** — ES→OpenSearch |
+| 3 | Logging & correlation (`requestId` / `traceId`) | `03-LOGGING-AND-CORRELATION.md` | ✅ |
 | — | Logs & tracing visual flow | `LOG-AND-TRACING-FLOW.md` | Companion to 03 |
-| 4 | Metrics (Micrometer / Prometheus / Grafana) | `04-METRICS.md` | Pending |
+| 4 | Metrics (Micrometer / Prometheus / Grafana) | `04-METRICS.md` | **Read next** |
+| 5 | Distributed Tracing (spans, Zipkin/OTel) | `05-DISTRIBUTED-TRACING.md` | Pending — OpenSearch + Istio |
 | 5 | Distributed Tracing (spans, Zipkin/OTel) | `05-DISTRIBUTED-TRACING.md` | Pending — **OpenSearch trace UI + Istio** |
 | 6 | Putting it together + interview pitch | `06-PITCH-AND-CHECKLIST.md` | Pending — full POC story |
 
@@ -37,5 +38,5 @@ Observability ties those into one story: **logs + metrics + traces**.
 
 ## Next
 
-Open **`03-LOGGING-AND-CORRELATION.md`** (includes your OpenSearch logging POC).  
-Then concept **4 — Metrics**.
+Open **`04-METRICS.md`**.  
+Then concept **5 — Distributed Tracing**.

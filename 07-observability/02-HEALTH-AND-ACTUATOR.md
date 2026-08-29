@@ -136,6 +136,12 @@ management.endpoint.health.probes.enabled=true
 
 1. Liveness vs readiness?  
 2. Why Actuator on OCP?  
-3. Is health enough for full observability? (**No** — need logs/metrics/traces too.)
+3. Is health enough for full observability?
+
+### Answers
+
+1. **Liveness** = restart me if broken. **Readiness** = don’t send traffic until I’m ready.  
+2. Probes call `/actuator/health/liveness` and `/readiness` so OpenShift only routes to ready pods and restarts stuck ones.  
+3. **No** — health is a coarse up/ready gate. You still need **logs, metrics, traces** for root cause.
 
 When ready → concept **3: Logging & correlation**.

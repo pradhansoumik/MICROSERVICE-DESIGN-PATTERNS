@@ -132,7 +132,14 @@ Libraries often used: Logback JSON encoder, Micrometer Tracing / OTel bridge for
 
 1. Why correlation ids in microservices?  
 2. requestId vs traceId?  
-3. Where does ES→OpenSearch sit? (**log storage/search**, concept 03)  
-4. How do logs link to tracing? (shared **traceId**)
+3. Where does ES→OpenSearch sit?  
+4. How do logs link to tracing?
+
+### Answers
+
+1. One request hits many services; without a shared id you can’t stitch their logs into one story.  
+2. **requestId** = support/edge correlation (`X-Request-Id`). **traceId** = whole distributed trace (all spans).  
+3. **Log storage/search** backend (+ Dashboards) — concept 03, not health/metrics.  
+4. Put the same **traceId** in log MDC fields; search logs ↔ open that trace in the UI.
 
 When ready → concept **4: Metrics**.

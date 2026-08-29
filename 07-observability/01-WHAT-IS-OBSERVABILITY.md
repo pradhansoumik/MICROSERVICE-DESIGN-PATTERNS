@@ -78,9 +78,14 @@ It’s not a fourth pillar in the classic “3 pillars” pitch, but it’s **da
 
 ## Checkpoint
 
-You should be able to answer:
 1. Observability vs monitoring?  
 2. Name the **three pillars** and one example each.  
 3. Why microservices need traces, not only logs?
+
+### Answers
+
+1. **Monitoring** watches known signals (“error rate high”). **Observability** lets you ask new questions from logs/metrics/traces to find *why*.  
+2. **Logs** (what happened) · **Metrics** (how much / trends) · **Traces** (where across services).  
+3. One request spans many services; logs alone don’t show the **path/timing** across hops — traces do.
 
 When ready → concept **2: Health & Actuator**.
