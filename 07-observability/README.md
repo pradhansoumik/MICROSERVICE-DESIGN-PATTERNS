@@ -15,9 +15,8 @@
 | 2 | Health & Actuator | `02-HEALTH-AND-ACTUATOR.md` | ✅ Done (or in progress) |
 | 3 | Logging & correlation (`requestId` / `traceId`) | `03-LOGGING-AND-CORRELATION.md` | ✅ |
 | — | Logs & tracing visual flow | `LOG-AND-TRACING-FLOW.md` | Companion to 03 |
-| 4 | Metrics (Micrometer / Prometheus / Grafana) | `04-METRICS.md` | **Read next** |
-| 5 | Distributed Tracing (spans, Zipkin/OTel) | `05-DISTRIBUTED-TRACING.md` | Pending — OpenSearch + Istio |
-| 5 | Distributed Tracing (spans, Zipkin/OTel) | `05-DISTRIBUTED-TRACING.md` | Pending — **OpenSearch trace UI + Istio** |
+| 4 | Metrics (Micrometer / Prometheus / Grafana) | `04-METRICS.md` | ✅ |
+| 5 | Distributed Tracing (spans, OTel / OpenSearch / Istio) | `05-DISTRIBUTED-TRACING.md` | **Read next** |
 | 6 | Putting it together + interview pitch | `06-PITCH-AND-CHECKLIST.md` | Pending — full POC story |
 
 Runnable demo app(s) come after concepts (or after each pillar if you want hands-on sooner).
@@ -38,5 +37,5 @@ Observability ties those into one story: **logs + metrics + traces**.
 
 ## Next
 
-Open **`04-METRICS.md`**.  
-Then concept **5 — Distributed Tracing**.
+Open **`05-DISTRIBUTED-TRACING.md`**.  
+Then concept **6 — Pitch & checklist**.
