@@ -10,7 +10,7 @@
 | 4 | Confirm Order | — (only if all succeeded) |
 
 **Demo style:** **Orchestration** (central `OrderSagaOrchestrator`) — clearest for interviews.  
-Choreography is explained in notes (event-driven, no central boss).
+**Choreography:** overview + interview notes in **`CHOREOGRAPHY.md`** — code later with Event-Driven / Kafka.
 
 | App | Port |
 |---|---|
@@ -78,6 +78,9 @@ Choreography sketch:
   OrderCreated → Inventory reserves → InventoryReserved → Payment charges
   PaymentFailed → InventoryReleased → OrderCancelled
 ```
+
+**Dedicated note (overview + architecture + interview Q&A):** → **`CHOREOGRAPHY.md`**  
+Implementation with Kafka → after Event-Driven learning (no code in this folder yet).
 
 ---
 
