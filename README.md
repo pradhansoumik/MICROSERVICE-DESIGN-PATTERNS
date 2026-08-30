@@ -15,7 +15,7 @@ Hands-on demos with **real-life examples**, runnable Spring Boot code, and archi
 | 03 | **API Gateway** | ✅ Done | Single entry → Order + Product backends |
 | 05 | **Service Discovery** | ✅ Done | Eureka registry + name-based calls + LB |
 | 06 | Event-Driven (+ Saga choreography) | ⏳ After Kafka | Order placed → Kafka → Inventory/Notification |
-| 07 | **Observability** | ⏳ In progress | Logs, metrics, tracing, health (concepts first) |
+| 07 | **Observability** | ✅ Concepts done | Logs, metrics, tracing, health — see `07-observability/` |
 
 ## Pattern 01 — Circuit Breaker
 

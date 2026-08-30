@@ -16,8 +16,8 @@
 | 3 | Logging & correlation (`requestId` / `traceId`) | `03-LOGGING-AND-CORRELATION.md` | ✅ |
 | — | Logs & tracing visual flow | `LOG-AND-TRACING-FLOW.md` | Companion to 03 |
 | 4 | Metrics (Micrometer / Prometheus / Grafana) | `04-METRICS.md` | ✅ |
-| 5 | Distributed Tracing (spans, OTel / OpenSearch / Istio) | `05-DISTRIBUTED-TRACING.md` | **Read next** |
-| 6 | Putting it together + interview pitch | `06-PITCH-AND-CHECKLIST.md` | Pending — full POC story |
+| 5 | Distributed Tracing (spans, OTel / OpenSearch / Istio) | `05-DISTRIBUTED-TRACING.md` | ✅ |
+| 6 | Putting it together + interview pitch | `06-PITCH-AND-CHECKLIST.md` | **Read next** |
 
 Runnable demo app(s) come after concepts (or after each pillar if you want hands-on sooner).
 
@@ -37,5 +37,5 @@ Observability ties those into one story: **logs + metrics + traces**.
 
 ## Next
 
-Open **`05-DISTRIBUTED-TRACING.md`**.  
-Then concept **6 — Pitch & checklist**.
+Open **`06-PITCH-AND-CHECKLIST.md`** — series wrap-up.  
+After that: optional small metrics/tracing demo, or **Event-Driven** when Kafka is done.
