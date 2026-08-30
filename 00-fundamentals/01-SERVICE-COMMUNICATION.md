@@ -88,6 +88,8 @@ webClient.get().uri("/stock/{id}", id).retrieve().bodyToMono(Stock.class);
 
 Our demos: storefront used **`@LoadBalanced RestTemplate`**; Feign is the same idea with less boilerplate.
 
+**Hands-on (no Eureka):** `rest-clients-demo/` — same provider called via RestTemplate, RestClient, and Feign. See `rest-clients-demo/DEMO.md`.
+
 ---
 
 ## 4. Async in detail (events)
