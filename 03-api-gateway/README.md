@@ -1,6 +1,6 @@
 # 03 — API Gateway
 
-**Category:** Communication / edge pattern  
+**Category:** Integration - (Communication / edge) pattern  
 **Real-life:** Mobile/Web apps call **one** entry URL; gateway routes to Order / Product services.
 
 ## Apps in this folder
