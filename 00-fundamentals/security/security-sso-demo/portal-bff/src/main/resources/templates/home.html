@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Portal — Home</title>
+    <style>
+        body { font-family: Georgia, serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem;
+               background: #f7f3ec; color: #1a1a1a; }
+        a { color: #0b5fff; }
+        .card { background: #fff; border: 1px solid #ddd; padding: 1.25rem; margin-top: 1rem; }
+        code { background: #eee; padding: 0.1rem 0.35rem; }
+    </style>
+</head>
+<body>
+<h1>Portal (SSO OK)</h1>
+<p>You were redirected to <strong>Keycloak</strong>, logged in, and landed here — same idea as company SSO.</p>
+
+<div class="card">
+    <p><strong>User:</strong> <span th:text="${username}">alice</span></p>
+    <p><strong>Name:</strong> <span th:text="${fullName}">Alice</span></p>
+    <p><strong>Email:</strong> <span th:text="${email}">a@x.com</span></p>
+    <p><strong>Authorities:</strong> <span th:text="${roles}">ROLE_USER</span></p>
+</div>
+
+<p style="margin-top:1.5rem">
+    <a href="/my-orders">Call Order API with access token →</a>
+    &nbsp;|&nbsp;
+    <a href="/logout">Logout</a>
+</p>
+</body>
+</html>

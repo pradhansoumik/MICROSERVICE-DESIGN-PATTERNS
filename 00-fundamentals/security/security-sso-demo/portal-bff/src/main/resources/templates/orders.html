@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Portal — Orders</title>
+    <style>
+        body { font-family: Georgia, serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem;
+               background: #f7f3ec; color: #1a1a1a; }
+        .card { background: #fff; border: 1px solid #ddd; padding: 1.25rem; margin-top: 1rem; }
+        pre { white-space: pre-wrap; word-break: break-word; background: #f0f0f0; padding: 0.75rem; }
+        a { color: #0b5fff; }
+    </style>
+</head>
+<body>
+<h1>Orders (from Order API)</h1>
+<p>Portal sent <code>Authorization: Bearer &lt;access_token&gt;</code> to order-api.
+    Order-api validated the JWT with Keycloak JWKS, then authorized the call.</p>
+
+<div class="card">
+    <p><strong>User:</strong> <span th:text="${username}">alice</span></p>
+    <p><strong>Access token preview:</strong> <code th:text="${accessTokenPreview}">...</code></p>
+    <pre th:text="${orders}">{}</pre>
+</div>
+
+<p><a href="/">← Home</a></p>
+</body>
+</html>

@@ -34,7 +34,11 @@ DB / other services
 **Pitch:**  
 > “We authenticate at the API Gateway with JWT. Downstream services authorize using roles/claims and never expose DB ports publicly. On OpenShift, Istio can add mTLS between services.”
 
-**Demo:** `03-api-gateway/api-gateway-auth-ratelimit` (JWT at edge + rate limit).
+**Demo:**  
+- Keycloak SSO: `00-fundamentals/security/security-sso-demo/`  
+- Simple HS256 JWT gateway: `03-api-gateway/api-gateway-auth-ratelimit`
+
+**Deep dive (visuals + tokens + S2S + prod notes):** `00-fundamentals/security/`
 
 ---
 

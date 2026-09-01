@@ -12,6 +12,7 @@ Hands-on demos with **real-life examples**, runnable Spring Boot code, and archi
 | Index | **`00-fundamentals/README.md`** |
 | Service communication | `00-fundamentals/01-SERVICE-COMMUNICATION.md` |
 | Security (authn/authz) | `00-fundamentals/02-SECURITY-AUTHN-AUTHZ.md` |
+| **Security SSO / Keycloak** | `00-fundamentals/security/` (+ `security-sso-demo`) |
 | Data consistency | `00-fundamentals/03-DATA-CONSISTENCY.md` |
 | Observability one-pager | `00-fundamentals/04-OBSERVABILITY-ONE-PAGER.md` |
 
