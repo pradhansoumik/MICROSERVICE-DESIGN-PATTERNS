@@ -101,7 +101,9 @@ Our demos: storefront used **`@LoadBalanced RestTemplate`**; Feign is the same i
 | Needs | Idempotent consumers, DLQ, often **Outbox** |
 | Not for | “User clicked Pay and needs immediate confirm” alone — usually mix sync + async |
 
-**Demo link:** planned `06-event-driven` + `02-saga/CHOREOGRAPHY.md`.
+**Demo link:** flow note `rest-clients-demo/ASYNC-COMMUNICATION-FLOW.md` · code later `06-event-driven` + `02-saga/CHOREOGRAPHY.md`.
+
+**gRPC (sync, not REST):** `rest-clients-demo/GRPC-OVERVIEW-AND-FLOW.md` + `rest-clients-demo/grpc-demo/`.
 
 ---
 
