@@ -6,10 +6,10 @@
 
 ## 1. Two styles
 
-| Style | How | Examples | Best for |
-|---|---|---|---|
-| **Synchronous** | Caller waits for response | REST, gRPC | Queries, user-facing request/response |
-| **Asynchronous** | Fire event / message; no wait | Kafka, RabbitMQ | Workflows, fan-out, decoupling, peak load |
+| Style | How | Examples | Best for                                                                                                                                                                                  |
+|---|---|---|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Synchronous** | Caller waits for response | REST, gRPC | Queries, user-facing request/response (Synchronous REST means: for that one request, the code waits for the downstream response — not that the whole app serves only one user at a time.) |
+| **Asynchronous** | Fire event / message; no wait | Kafka, RabbitMQ | Workflows, fan-out, decoupling, peak load                                                                                                                                                 |
 
 ```text
 Sync:   Order ──HTTP──► Inventory   (wait for 200)
