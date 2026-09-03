@@ -5,7 +5,7 @@
 | `product-grpc-server` | **9090** (gRPC) | Implements `ProductGrpcService` |
 | `product-grpc-client` | **8302** (HTTP) | Calls server via gRPC; expose REST for easy test |
 
-Concept flow: `../GRPC-OVERVIEW-AND-FLOW.md`
+Concept flow: `../GRPC-OVERVIEW-AND-FLOW.md` (folder: `00-fundamentals/grpc/`)
 
 ## Run
 

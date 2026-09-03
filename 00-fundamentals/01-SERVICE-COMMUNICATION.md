@@ -103,7 +103,7 @@ Our demos: storefront used **`@LoadBalanced RestTemplate`**; Feign is the same i
 
 **Demo link:** flow note `rest-clients-demo/ASYNC-COMMUNICATION-FLOW.md` · code later `06-event-driven` + `02-saga/CHOREOGRAPHY.md`.
 
-**gRPC (sync, not REST):** `rest-clients-demo/GRPC-OVERVIEW-AND-FLOW.md` + `rest-clients-demo/grpc-demo/`.
+**gRPC (sync, not REST):** `grpc/GRPC-OVERVIEW-AND-FLOW.md` + `grpc/grpc-demo/`.
 
 ---
 

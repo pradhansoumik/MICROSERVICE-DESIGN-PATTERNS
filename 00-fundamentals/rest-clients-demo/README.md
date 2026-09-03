@@ -66,18 +66,8 @@ Legacy codebase                     → RestTemplate (until migrated)
 | `DEMO.md` | Run RestTemplate / RestClient / Feign |
 | `FLOW.md` | REST client request paths (+ Feign detail) |
 | **`ASYNC-COMMUNICATION-FLOW.md`** | Async (Kafka-style) flow understanding |
-| **`GRPC-OVERVIEW-AND-FLOW.md`** | gRPC vs REST + call flow |
-| **`grpc-demo/`** | Runnable gRPC server + client |
 
----
-
-## Sync map (this folder)
-
-| Style | Demo |
-|---|---|
-| REST RestTemplate / RestClient / Feign | `product-provider` + `product-caller` |
-| gRPC | `grpc-demo/` |
-| Async events | Flow note now → code in `06-event-driven` later |
+**gRPC** (separate from REST clients): `../grpc/`
 
 ---
 

@@ -1,6 +1,6 @@
 # gRPC — Overview & Flow
 
-**Related:** REST clients in this folder (HTTP/JSON) · sync communication in `../01-SERVICE-COMMUNICATION.md`
+**Related:** REST clients → `../rest-clients-demo/` · sync communication → `../01-SERVICE-COMMUNICATION.md`
 
 gRPC is **another sync style** (caller usually waits) — not REST, not Kafka.
 

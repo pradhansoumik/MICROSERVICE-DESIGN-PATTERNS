@@ -11,6 +11,7 @@ Runnable demos live in `01-` … `07-`; this folder **links** to them.
 | **`03-DATA-CONSISTENCY.md`** | DB per service, Saga vs 2PC (short) |
 | **`04-OBSERVABILITY-ONE-PAGER.md`** | Logs / metrics / traces — pointer to `07-observability` |
 | **`rest-clients-demo/`** | Runnable: RestTemplate + RestClient + Feign vs one provider |
+| **`grpc/`** | gRPC overview + runnable server/client demo (not REST) |
 **Revise order:** Communication → Security → Consistency → Observability pitch.
 
 **Related pattern demos**
