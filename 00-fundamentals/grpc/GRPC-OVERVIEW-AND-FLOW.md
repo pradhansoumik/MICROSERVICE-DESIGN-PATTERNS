@@ -18,7 +18,8 @@ gRPC is **another sync style** (caller usually waits) — not REST, not Kafka.
 | Typical use | Public/external APIs, simple S2S | **Internal** high-performance S2S |
 
 **One-liner:**  
-> “gRPC is a contract-first, binary RPC framework over HTTP/2 — great between backend services; REST/JSON is simpler for public HTTP APIs.”
+> “**gRPC** (**gRPC Remote Procedure Calls**) is a contract-first, binary RPC framework over HTTP/2. It’s a strong fit for **service-to-service** calls inside your system (Order → Pricing, Inventory → Catalog) where both sides speak gRPC; **REST/JSON** is simpler for public or browser-facing HTTP APIs.”
+
 
 ---
 
